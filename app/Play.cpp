@@ -23,7 +23,7 @@ void Play() {
         "\\_____|\\____/ |_|  |_||_|  |_||_____||_| \\|\\_____| |_____/ \\____/ \\____/ |_|\\_|"
     };
                                                  
-    typeWriting(x,y, "Comming Soon", "Babay");
+    typeWriting(x,y, "Comming Soon...", "Babay");
 
     getch();
     endwin();
