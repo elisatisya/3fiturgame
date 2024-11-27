@@ -247,14 +247,14 @@ void Register(){
     coorxy(middle('x') + 1, middle('y'));
     cin >> nama;
 
-    myFile.open("./app/data/" + nama + ".txt");
+    myFile.open("./data/" + nama + ".txt");
     myFile << 0;
     myFile.close();
 
     string ListNama;
     bool cek = false;
 
-    myfile.open("./app/data/Akun.txt", ios::app);
+    myfile.open("./data/Akun.txt", ios::app);
 
     do{
         if(nama == ListNama){
@@ -277,7 +277,7 @@ void Register(){
         teksRegSuccess();    
         Sleep(2000);
 
-        myFile.open("./app/data/Akun.txt", ios::app);
+        myFile.open("./data/Akun.txt", ios::app);
         myFile << nama << endl;
         myFile.close();
     }
@@ -306,7 +306,7 @@ void Login(){
     string ListNama;
     bool cek = false;
 
-    myfile.open("./app/data/Akun.txt", ios::app);
+    myfile.open("./data/Akun.txt", ios::app);
     while(myfile >> ListNama){
         if(nama == ListNama){
             cek = true;
