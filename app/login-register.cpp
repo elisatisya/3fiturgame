@@ -3,25 +3,11 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
-
 using namespace std;
 
-#define KEY_ESC 27
-
 void Login_Register();
-void teksWelcome();
-void Register();
-void Login();
-void teksReg();
-void teksRegError();
-void teksRegSuccess();
-void teksLog();
-void teksLogError();
-void teksLogSuccess();
-void coorxy();
-void frame();
-void frame1();
-void load();
+
+#define KEY_ESC 27
 
 int size(char xy){
     initscr();
@@ -114,9 +100,11 @@ void loading(){
         refresh();
         Sleep(100);
     }
-
+    
+    clear();
     endwin();
 }
+
 
 void teksReg(){
     string teks[6] = {  " _____   ______   _____  _____   _____  _______  ______  _____  ",
@@ -259,14 +247,14 @@ void Register(){
     coorxy(middle('x') + 1, middle('y'));
     cin >> nama;
 
-    myFile.open(nama + ".txt");
+    myFile.open("./app/data/" + nama + ".txt");
     myFile << 0;
     myFile.close();
 
     string ListNama;
     bool cek = false;
 
-    myfile.open("Akun.txt", ios::app);
+    myfile.open("./app/data/Akun.txt", ios::app);
 
     do{
         if(nama == ListNama){
@@ -289,7 +277,7 @@ void Register(){
         teksRegSuccess();    
         Sleep(2000);
 
-        myFile.open("Akun.txt", ios::app);
+        myFile.open("./app/data/Akun.txt", ios::app);
         myFile << nama << endl;
         myFile.close();
     }
@@ -318,7 +306,7 @@ void Login(){
     string ListNama;
     bool cek = false;
 
-    myfile.open("Akun.txt", ios::app);
+    myfile.open("./app/data/Akun.txt", ios::app);
     while(myfile >> ListNama){
         if(nama == ListNama){
             cek = true;
@@ -398,6 +386,7 @@ void Login_Register(){
     mvprintw(baris_awal, kolom, "%s", arr[0].c_str());
     mvprintw(baris_awal, kolom, "<{");
     mvprintw(baris_awal, kolom + 18, "}>");
+    attroff(COLOR_PAIR(2));
 
     int tombol;
     while(tombol != KEY_ESC){
@@ -429,6 +418,7 @@ void Login_Register(){
             mvprintw(baris, kolom, "%s", arr[menu].c_str());
             mvprintw(baris, kolom, "<{");
             mvprintw(baris, kolom + 18, "}>");
+            attroff(COLOR_PAIR(2));
 
             attron(COLOR_PAIR(1));
             if(menu == 1){
@@ -436,6 +426,7 @@ void Login_Register(){
             } else {
                 mvprintw(baris + 2, kolom, "%s", arr[menu + 1].c_str());
             }
+            attroff(COLOR_PAIR(1));
 
         }
         else if(tombol == KEY_DOWN){
@@ -451,6 +442,7 @@ void Login_Register(){
             mvprintw(baris, kolom, "%s", arr[menu].c_str());
             mvprintw(baris, kolom, "<{");
             mvprintw(baris, kolom + 18, "}>");
+            attroff(COLOR_PAIR(2));
 
             attron(COLOR_PAIR(1));
             if(menu == 0){
@@ -458,6 +450,7 @@ void Login_Register(){
             } else {
                 mvprintw(baris - 2, kolom, "%s", arr[menu - 1].c_str());
             }
+            attroff(COLOR_PAIR(1));
         }
     }
 

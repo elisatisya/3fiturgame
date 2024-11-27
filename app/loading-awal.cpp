@@ -3,7 +3,7 @@
 #include <windows.h>
 using namespace std;
 
-int main(){
+void loading_awal(){
     initscr();
     curs_set(0);
     start_color();
@@ -73,7 +73,7 @@ int main(){
         Sleep(50);
         a++;
     }
+    
     clear();
-
     endwin();
 }
