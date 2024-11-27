@@ -67,14 +67,4 @@ void dashboard() {
     } while(key = getch());
     clear();
     endwin();
-    // if(bacaFile.is_open()) {
-    //     std::string baris;
-    //     int index = 10;
-    //     mvprintw(10,10, "%s", "Data User");
-    //     while(std::getline(bacaFile, baris)) {
-    //         mvprintw(++index , 10, "%s", baris.c_str());
-    //         refresh();
-    //     }
-    //     bacaFile.close();
-    // }
 }

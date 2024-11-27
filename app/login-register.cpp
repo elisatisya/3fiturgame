@@ -247,14 +247,14 @@ void Register(){
     coorxy(middle('x') + 1, middle('y'));
     cin >> nama;
 
-    myFile.open("./data/" + nama + ".txt");
+    myFile.open("app/data/" + nama + ".txt");
     myFile << 0;
     myFile.close();
 
     string ListNama;
     bool cek = false;
 
-    myfile.open("./data/Akun.txt", ios::app);
+    myfile.open("app/data/Akun.txt", ios::app);
 
     do{
         if(nama == ListNama){
@@ -262,8 +262,9 @@ void Register(){
             system("cls");
             frame();
             teksRegError();
-            getch();
+            Sleep(2000);
             Register();
+            break;
         } else {
             cek = true;
         }
@@ -277,14 +278,14 @@ void Register(){
         teksRegSuccess();    
         Sleep(2000);
 
-        myFile.open("./data/Akun.txt", ios::app);
+        myFile.open("app/data/Akun.txt", ios::app);
         myFile << nama << endl;
         myFile.close();
+
+        system("cls");
+
+        Login_Register();
     }
-
-    system("cls");
-
-    Login_Register();
 }
 
 void Login(){
@@ -306,7 +307,7 @@ void Login(){
     string ListNama;
     bool cek = false;
 
-    myfile.open("./data/Akun.txt", ios::app);
+    myfile.open("app/data/Akun.txt", ios::app);
     while(myfile >> ListNama){
         if(nama == ListNama){
             cek = true;
@@ -328,7 +329,7 @@ void Login(){
         system("cls");
         frame();
         teksLogError();
-        getch();
+        Sleep(2000);
         Login();
     }
 }
@@ -354,7 +355,7 @@ void Login_Register(){
 
     noecho();
 
-    curs_set(0);
+    curs_set(1);
 
     start_color();
 
@@ -363,6 +364,8 @@ void Login_Register(){
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
 
     attron(COLOR_PAIR(3));
+
+    curs_set(0);
 
     teksWelcome();
 
